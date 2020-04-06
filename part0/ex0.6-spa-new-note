@@ -1,0 +1,19 @@
+note over browser:
+user types note in the input field
+and clicks 'Save'
+end note
+note over browser:
+browser executes event handler
+on form submit
+end note
+note over browser:
+note contents get saved to local 
+variable, notes on page get redrawn,
+input gets cleared
+end note
+browser->server: https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server-->browser: 201 created {"message":"note created"}
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+note over browser:
+response gets logged to console
+end note
