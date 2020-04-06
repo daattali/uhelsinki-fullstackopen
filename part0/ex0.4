@@ -1,0 +1,10 @@
+note over browser:
+user types note in the input field
+and clicks 'Save'
+end note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+server-->browser: 302 redirect to /notes
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+note over browser,server:
+New page started, repeat of previous
+end note
