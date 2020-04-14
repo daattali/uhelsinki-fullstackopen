@@ -8,9 +8,9 @@ const FeedbackButton = ({setter, value, text}) => {
   )
 }
 
-const Statistic = ({text, value}) => (
+const Statistic = ({text, value, post}) => (
   <>
-    {text} {value}
+    {text} {value} {post}
     <br />
   </>
 )
@@ -19,6 +19,10 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+
+  const calculateAll = () => good + neutral + bad
+  const calculateAverage = () => (good - bad) / calculateAll()
+  const calculatePositive = () => good / calculateAll() * 100  
 
   return (
     <div>
@@ -30,6 +34,9 @@ const App = () => {
       <Statistic value={good} text="good" />
       <Statistic value={neutral} text="neutral" />
       <Statistic value={bad} text="bad" />
+      <Statistic value={calculateAll()} text="all" />
+      <Statistic value={calculateAverage()} text="average" />
+      <Statistic value={calculatePositive()} text="positive" post="%" />
     </div>
   )
 }
