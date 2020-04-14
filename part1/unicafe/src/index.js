@@ -16,11 +16,11 @@ const Statistic = ({text, value, post}) => (
 )
 
 const Statistics = ({good, neutral, bad}) => {
-  const calculateAll = () => good + neutral + bad
-  const calculateAverage = () => (good - bad) / calculateAll()
-  const calculatePositive = () => good / calculateAll() * 100  
+  const all = good + neutral + bad
+  const average = (good - bad) / all
+  const positive = good / all * 100  
   
-  if (calculateAll() === 0) {
+  if (all === 0) {
     return (
       "No feedback given"
     )
@@ -32,9 +32,9 @@ const Statistics = ({good, neutral, bad}) => {
         <Statistic value={good} text="good" />
         <Statistic value={neutral} text="neutral" />
         <Statistic value={bad} text="bad" />
-        <Statistic value={calculateAll()} text="all" />
-        <Statistic value={calculateAverage()} text="average" />
-        <Statistic value={calculatePositive()} text="positive" post="%" />
+        <Statistic value={all} text="all" />
+        <Statistic value={average} text="average" />
+        <Statistic value={positive} text="positive" post="%" />
       </tbody>
     </table>
   )
@@ -60,58 +60,3 @@ const App = () => {
 ReactDOM.render(<App />, 
   document.getElementById('root')
 )
-
-// import React, { useState } from 'react'
-// import ReactDOM from 'react-dom'
-
-// const History = (props) => {
-//   if (props.allClicks.length === 0) {
-//     return (
-//       <div>
-//         the app is used by pressing the buttons
-//       </div>
-//     )
-//   }
-
-//   return (
-//     <div>
-//       button press history: {props.allClicks.join(' ')}
-//     </div>
-//   )
-// }
-
-// const Button = ({ onClick, text }) => (
-//   <button onClick={onClick}>
-//     {text}
-//   </button>
-// )
-
-// const App = (props) => {
-//   const [left, setLeft] = useState(0)
-//   const [right, setRight] = useState(0)
-//   const [allClicks, setAll] = useState([])
-
-//   const handleLeftClick = () => {
-//     setAll(allClicks.concat('L'))
-//     setLeft(left + 1)
-//   }
-
-//   const handleRightClick = () => {
-//     setAll(allClicks.concat('R'))
-//     setRight(right + 1)
-//   }
-
-//   return (
-//     <div>
-//       <div>
-//         {left}
-//         <Button onClick={handleLeftClick} text='left' />
-//         <Button onClick={handleRightClick} text='right' />
-//         {right}
-//         <History allClicks={allClicks} />
-//       </div>
-//     </div>
-//   )
-// }
-
-// ReactDOM.render(<App />, document.getElementById('root'))
