@@ -9,18 +9,17 @@ const Button = ({setter, value, text}) => {
 }
 
 const Statistic = ({text, value, post}) => (
-  <>
-    {text} {value} {post}
-    <br />
-  </>
+  <tr>
+    <td>{text}</td>
+    <td>{value} {post}</td>
+  </tr>
 )
 
 const Statistics = ({good, neutral, bad}) => {
   const calculateAll = () => good + neutral + bad
   const calculateAverage = () => (good - bad) / calculateAll()
   const calculatePositive = () => good / calculateAll() * 100  
-  const noFeedback = () => calculateAll() === 0
-
+  
   if (calculateAll() === 0) {
     return (
       "No feedback given"
@@ -28,14 +27,16 @@ const Statistics = ({good, neutral, bad}) => {
   }
 
   return (
-    <>
-    <Statistic value={good} text="good" />
-    <Statistic value={neutral} text="neutral" />
-    <Statistic value={bad} text="bad" />
-    <Statistic value={calculateAll()} text="all" />
-    <Statistic value={calculateAverage()} text="average" />
-    <Statistic value={calculatePositive()} text="positive" post="%" />
-    </>
+    <table>
+      <tbody>
+        <Statistic value={good} text="good" />
+        <Statistic value={neutral} text="neutral" />
+        <Statistic value={bad} text="bad" />
+        <Statistic value={calculateAll()} text="all" />
+        <Statistic value={calculateAverage()} text="average" />
+        <Statistic value={calculatePositive()} text="positive" post="%" />
+      </tbody>
+    </table>
   )
 }
 
