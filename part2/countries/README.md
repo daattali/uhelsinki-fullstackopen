@@ -1,1 +1,1 @@
-Run the app using `npm start`. To get a weather report for a country's capital, signup at https://weatherstack.com/ to get an API key and create a `.env` file containing `REACT_APP_WEATHERSTACK_API_KEY=you_key`
+Run the app using `npm start`. To get a weather report for a country's capital, signup at https://weatherstack.com/ to get an API key and create a `.env` file containing `REACT_APP_WEATHERSTACK_API_KEY=<your_key>`
