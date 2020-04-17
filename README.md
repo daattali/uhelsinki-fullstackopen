@@ -2,7 +2,7 @@
 
 To run any exercise, go to the app's root and run `npm install` once to install all required modules, then `npm start` every time to start the app.
 
-## Stuff I don't like about React (so far - some of it will probably get better when I go beyond the basics)
+#### Stuff I don't like about React (so far - some of it will probably get better when I go beyond the basics)
 
 - every input must have a state hook and you have to define the onChange callback to set the state of the associated 
 variable, so every time an input changes value theres a round trip to react
