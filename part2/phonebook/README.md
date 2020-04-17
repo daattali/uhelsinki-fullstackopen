@@ -1,1 +1,1 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run, start the JSON-server using `npm run server` and run the app using `npm start`
