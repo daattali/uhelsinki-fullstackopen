@@ -16,3 +16,5 @@ variable, so every time an input changes value theres a round trip to react
 - component's state is being maintained by the parent, not by the component itself
 
 - you can't do a simple "return" of a value from a component. You have to use callbacks from the parents.
+
+- I can't simply "return" right away inside a component conditionally if I use any hooks. For example, in the countries app (part 2) in the Weather component I want it to just return right away without trying to do anything if an API key isn't provided, but I can't do that because then react complains that hooks must be run before any conditionals.
