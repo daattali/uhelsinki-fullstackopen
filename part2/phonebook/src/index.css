@@ -20,3 +20,11 @@ code {
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.notification.success {
+  color: green;
+}
+
+.notification.error {
+  color: red;
+}

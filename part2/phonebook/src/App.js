@@ -27,8 +27,8 @@ const App = () => {
       .then(response => setPersons(response))
   }, [])
 
-  const showMessage = message => {
-    setNotification(message)
+  const showMessage = (message, type="success") => {
+    setNotification({message, type})
     setTimeout(() => {
       setNotification(null)
     }, 5000)
@@ -52,7 +52,7 @@ const App = () => {
             showMessage(`Updated ${newName}`)
           })
           .catch(error => {
-            showMessage(`Information of ${newName} has already been removed from server`)
+            showMessage(`Information of ${newName} has already been removed from server`, "error")
             setPersons(persons.filter(person => person.id !== personID))
           })
       }
@@ -82,7 +82,7 @@ const App = () => {
           showMessage(`Deleted ${personDelete.name}`)
         })
         .catch(error => {
-          showMessage(`Information of ${newName} has already been removed from server`)
+          showMessage(`Information of ${newName} has already been removed from server`, "error")
           setPersons(persons.filter(person => person.id !== personDelete.id))
         })
     } 
@@ -90,7 +90,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification message={notification}/>
+      <Notification notification={notification}/>
       <Filter newFilter={newFilter} setNewFilter={setNewFilter} />
       <h2>Add a new</h2>
       <PersonForm 
